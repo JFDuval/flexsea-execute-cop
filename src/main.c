@@ -40,8 +40,8 @@ int main()
 	// Enable global interrupts
 	CyGlobalIntEnable;
 	
-	//PWM pass-through (ToDo program safety feature)
-	PWM_Enable_Write(1);	
+	//PWM pass-through
+	PWM_Enable_Write(1);
 	
 	//Disable shorted leads
 	SL_EN_Write(0);
@@ -89,6 +89,7 @@ int main()
 				led_period = LED_PERIOD_ERROR;
 				flag_wdclk = 2;	//2 means "being processed"
 				err_wdclk = 1;
+				
 			}
 			else
 			{
@@ -104,6 +105,18 @@ int main()
 				extend_error_pulse = 0;
 				flag_wdclk = 0;
 				err_wdclk = 0;
+			}
+			
+			//Monitor WDCLK error to see if we need to disable PWM:
+			if(safetyWDCLKpwm(err_wdclk))
+			{
+				//Disable PWM:
+				PWM_Enable_Write(0);
+			}
+			else
+			{
+				//Enable PWM:
+				PWM_Enable_Write(1);
 			}
 		}
 		

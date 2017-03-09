@@ -105,6 +105,33 @@ uint8 safety_disconnection(uint16 last_v)
 	return BATT_CONNECTED;
 }
 
+//Is the WDCLK wrong? Is it time to remove Execute's control over the PWM lines?
+uint8_t safetyWDCLKpwm(uint8_t errWDCLK)
+{
+	//Note: at boot WDCLK isn't toggling. This function adds some logic to
+	//avoid a false detection.
+	//Note 2: function called every ms
+	
+	static uint8_t lastErr = 0;
+	static uint16_t delayedStart = 0;
+	
+	delayedStart++;
+	if(delayedStart < 1000)
+	{
+		//No detection right after power on
+		return 0;
+	}
+	
+	//We want to trip if errWDCLK was low, then high
+	if((lastErr == 0) && (errWDCLK == 1))
+	{
+		return 1;
+	}
+	
+	//Default:
+	return 0;
+}
+
 //****************************************************************************
 // Private Function(s)
 //****************************************************************************

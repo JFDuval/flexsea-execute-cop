@@ -15,6 +15,7 @@
 //****************************************************************************	
 	
 #include "main.h"
+#include <stdint.h>
 
 //****************************************************************************
 // Structure(s)
@@ -27,9 +28,10 @@ extern uint8 flag_wdclk;
 //****************************************************************************
 
 void init_safety(void);
-uint8 safety_temp(uint8 temp);
-uint8 safety_volt(uint16 last_v, uint16 low, uint16 high);
-uint8 safety_disconnection(uint16 last_v);
+uint8_t safety_temp(uint8 temp);
+uint8_t safety_volt(uint16 last_v, uint16 low, uint16 high);
+uint8_t safety_disconnection(uint16 last_v);
+uint8_t safetyWDCLKpwm(uint8_t errWDCLK);
 
 //****************************************************************************
 // Definition(s):
