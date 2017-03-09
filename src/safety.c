@@ -119,14 +119,18 @@ uint8_t safetyWDCLKpwm(uint8_t errWDCLK)
 	if(delayedStart < 1000)
 	{
 		//No detection right after power on
+		lastErr = errWDCLK;
 		return 0;
 	}
 	
 	//We want to trip if errWDCLK was low, then high
 	if((lastErr == 0) && (errWDCLK == 1))
 	{
+		lastErr = errWDCLK;
 		return 1;
 	}
+	
+	lastErr = errWDCLK;
 	
 	//Default:
 	return 0;

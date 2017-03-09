@@ -29,6 +29,7 @@ int main()
 	uint8 i2c_flag = 0;
 	uint16 tmp_volt_3v3 = 0, tmp_volt_vg = 0, tmp_volt_vb = 0;
 	uint16 extend_error_pulse = 0;
+	uint8_t wErrorHappened = 0;
 	
 	//Boot in a safe state:
 	PWM_Enable_Write(0);
@@ -89,11 +90,12 @@ int main()
 				led_period = LED_PERIOD_ERROR;
 				flag_wdclk = 2;	//2 means "being processed"
 				err_wdclk = 1;
-				
+				wErrorHappened = 1;
 			}
 			else
 			{
 				led_period = LED_PERIOD_NORM;
+				wErrorHappened = 0;
 			}
 			
 			if(extend_error_pulse >= 1)
@@ -108,7 +110,7 @@ int main()
 			}
 			
 			//Monitor WDCLK error to see if we need to disable PWM:
-			if(safetyWDCLKpwm(err_wdclk))
+			if(safetyWDCLKpwm(wErrorHappened) == 1)
 			{
 				//Disable PWM:
 				PWM_Enable_Write(0);
