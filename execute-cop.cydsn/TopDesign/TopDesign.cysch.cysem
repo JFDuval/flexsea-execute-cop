@@ -6857,15 +6857,6 @@
       <Terminal name="PWMH1.fb_0" type="Instance Digital Output" />
       <Terminal name="and_1.term0" type="Instance Digital Input" />
     </Signal>
-    <Signal name="Net_3" type="Digital" terminalCount="7">
-      <Terminal name="PWM_Enable.control_0" type="Instance Digital Output" />
-      <Terminal name="and_2.term1" type="Instance Digital Input" />
-      <Terminal name="and_3.term1" type="Instance Digital Input" />
-      <Terminal name="and_4.term1" type="Instance Digital Input" />
-      <Terminal name="and_5.term1" type="Instance Digital Input" />
-      <Terminal name="and_6.term1" type="Instance Digital Input" />
-      <Terminal name="and_1.term1" type="Instance Digital Input" />
-    </Signal>
     <Signal name="Net_5" type="Digital" terminalCount="2">
       <Terminal name="PWML1.fb_0" type="Instance Digital Output" />
       <Terminal name="and_2.term0" type="Instance Digital Input" />
@@ -6953,10 +6944,6 @@
     <Signal name="Net_104" type="Analog" terminalCount="2">
       <Terminal name="TEMP.analog_0" type="Instance Analog InOut" />
       <Terminal name="ADC_SAR_Seq_1.vinPlus2" type="Instance Analog InOut" />
-    </Signal>
-    <Signal name="Net_111" type="Digital" terminalCount="2">
-      <Terminal name="DigitalComp_1.cmp" type="Instance Digital Output" />
-      <Terminal name="isr_wdclk.int_signal" type="Instance Digital Input" />
     </Signal>
     <Signal name="Net_121" type="Analog" terminalCount="1">
       <Terminal name="ADC_SAR_Seq_1.Vref" type="Instance Analog InOut" />
@@ -7151,6 +7138,19 @@
     </Signal>
     <Signal name="Net_352" type="Digital" terminalCount="1">
       <Terminal name="I2C_1.rx_in" type="Instance Digital Input" />
+    </Signal>
+    <Signal name="Net_354" type="Digital" terminalCount="2">
+      <Terminal name="DigitalComp_1.cmp" type="Instance Digital Output" />
+      <Terminal name="isr_wdclk.int_signal" type="Instance Digital Input" />
+    </Signal>
+    <Signal name="Net_355" type="Digital" terminalCount="7">
+      <Terminal name="PWM_Enable.control_0" type="Instance Digital Output" />
+      <Terminal name="and_6.term1" type="Instance Digital Input" />
+      <Terminal name="and_5.term1" type="Instance Digital Input" />
+      <Terminal name="and_4.term1" type="Instance Digital Input" />
+      <Terminal name="and_3.term1" type="Instance Digital Input" />
+      <Terminal name="and_2.term1" type="Instance Digital Input" />
+      <Terminal name="and_1.term1" type="Instance Digital Input" />
     </Signal>
   </Signals>
   <Properties>

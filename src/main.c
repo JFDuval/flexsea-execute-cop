@@ -47,6 +47,9 @@ int main()
 	//Disable shorted leads
 	SL_EN_Write(0);
 	
+	//Test code:
+	//testSafetyWDCLKpwmBlocking();
+	
     while(1)
     {
 		//For now we always generate the -4V5:
@@ -95,7 +98,7 @@ int main()
 			else
 			{
 				led_period = LED_PERIOD_NORM;
-				wErrorHappened = 0;
+				//wErrorHappened = 0;
 			}
 			
 			if(extend_error_pulse >= 1)
@@ -110,7 +113,7 @@ int main()
 			}
 			
 			//Monitor WDCLK error to see if we need to disable PWM:
-			if(safetyWDCLKpwm(wErrorHappened) == 1)
+			if(safetyWDCLKpwm(&wErrorHappened) == 1)
 			{
 				//Disable PWM:
 				PWM_Enable_Write(0);

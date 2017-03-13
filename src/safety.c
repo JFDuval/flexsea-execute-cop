@@ -106,34 +106,80 @@ uint8 safety_disconnection(uint16 last_v)
 }
 
 //Is the WDCLK wrong? Is it time to remove Execute's control over the PWM lines?
-uint8_t safetyWDCLKpwm(uint8_t errWDCLK)
+#define MAX_INTEG	20
+uint8_t safetyWDCLKpwm(uint8_t *errWDCLK)
 {
-	//Note: at boot WDCLK isn't toggling. This function adds some logic to
-	//avoid a false detection.
-	//Note 2: function called every ms
+	static int16_t integrator = 0;
+	static uint8_t slowDown = 0;
+	static uint8_t retVal = 0;
 	
-	static uint8_t lastErr = 0;
-	static uint16_t delayedStart = 0;
+	slowDown++;
+	slowDown %= 5;
 	
-	delayedStart++;
-	if(delayedStart < 1000)
+	//Integrate the flag:
+	if(*errWDCLK)
 	{
-		//No detection right after power on
-		lastErr = errWDCLK;
-		return 0;
+		//Up: always
+		integrator++;
+	}
+	else
+	{
+		//Down: skipping turns
+		if(!slowDown)
+		{
+			integrator--;
+		}
 	}
 	
-	//We want to trip if errWDCLK was low, then high
-	if((lastErr == 0) && (errWDCLK == 1))
+	//Saturation:
+	if(integrator > MAX_INTEG)
 	{
-		lastErr = errWDCLK;
-		return 1;
+		integrator = MAX_INTEG;
+	}
+	if(integrator < 0)
+	{
+		integrator = 0;
 	}
 	
-	lastErr = errWDCLK;
+	//Reset flag:
+	(*errWDCLK) = 0;
 	
-	//Default:
-	return 0;
+	//Return value with hysteresis:
+	if(integrator >= MAX_INTEG)
+	{
+		retVal = 1;
+	}
+	
+	if(integrator <= 2)
+	{
+		retVal = 0;
+	}
+	
+	return retVal;
+}
+
+//****************************************************************************
+// Test Function(s)
+//****************************************************************************
+
+void testSafetyWDCLKpwmBlocking(void)
+{
+	uint8_t wdclk = 0, i = 0, res = 0;
+	
+	while(1)
+	{
+		for(i = 0; i < 20; i++)
+		{
+			wdclk = 1;
+			res = safetyWDCLKpwm(&wdclk);
+			wdclk = 0;
+			res = safetyWDCLKpwm(&wdclk);
+			if(res == 1)
+			{
+				res = 0;
+			}
+		}
+	}
 }
 
 //****************************************************************************

@@ -894,47 +894,47 @@
       <Point1 x="690" y="270" />
       <Point2 x="702" y="270" />
     </Wire>
-    <Wire shapeName="Shape_27" zorder="51" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_27" zorder="51" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="96" />
       <Point2 x="642" y="96" />
     </Wire>
-    <Wire shapeName="Shape_29" zorder="65" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_29" zorder="65" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="132" />
       <Point2 x="642" y="132" />
     </Wire>
-    <Wire shapeName="Shape_30" zorder="63" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_30" zorder="63" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="96" />
       <Point2 x="630" y="132" />
     </Wire>
-    <Wire shapeName="Shape_32" zorder="67" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_32" zorder="67" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="168" />
       <Point2 x="642" y="168" />
     </Wire>
-    <Wire shapeName="Shape_33" zorder="61" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_33" zorder="61" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="132" />
       <Point2 x="630" y="168" />
     </Wire>
-    <Wire shapeName="Shape_35" zorder="69" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_35" zorder="69" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="204" />
       <Point2 x="642" y="204" />
     </Wire>
-    <Wire shapeName="Shape_36" zorder="59" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_36" zorder="59" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="168" />
       <Point2 x="630" y="204" />
     </Wire>
-    <Wire shapeName="Shape_38" zorder="71" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_38" zorder="71" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="240" />
       <Point2 x="642" y="240" />
     </Wire>
-    <Wire shapeName="Shape_39" zorder="57" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_39" zorder="57" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="204" />
       <Point2 x="630" y="240" />
     </Wire>
-    <Wire shapeName="Shape_41" zorder="73" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_41" zorder="73" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="276" />
       <Point2 x="642" y="276" />
     </Wire>
-    <Wire shapeName="Shape_42" zorder="55" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_42" zorder="55" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="240" />
       <Point2 x="630" y="276" />
     </Wire>
@@ -2856,11 +2856,11 @@
         </Annotation>
       </SubShapes>
     </Instance>
-    <Wire shapeName="Shape_122" zorder="107" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_122" zorder="107" effectiveName="Net_355" type="Digital">
       <Point1 x="612" y="318" />
       <Point2 x="630" y="318" />
     </Wire>
-    <Wire shapeName="Shape_124" zorder="53" effectiveName="Net_3" type="Digital">
+    <Wire shapeName="Shape_124" zorder="53" effectiveName="Net_355" type="Digital">
       <Point1 x="630" y="276" />
       <Point2 x="630" y="318" />
     </Wire>
@@ -3617,10 +3617,6 @@
       <Point1 x="402" y="480" />
       <Point2 x="408" y="480" />
     </Wire>
-    <Wire shapeName="Shape_198" zorder="142" effectiveName="Net_111" type="Digital">
-      <Point1 x="492" y="402" />
-      <Point2 x="504" y="402" />
-    </Wire>
     <Wire shapeName="Shape_199" zorder="138" effectiveName="Net_331" type="Digital">
       <Point1 x="288" y="408" />
       <Point2 x="318" y="408" />
@@ -3922,6 +3918,10 @@
         </Terminal>
       </SubShapes>
     </Instance>
+    <Wire shapeName="Shape_220" zorder="142" effectiveName="Net_354" type="Digital">
+      <Point1 x="492" y="402" />
+      <Point2 x="504" y="402" />
+    </Wire>
     <Annotation shapeName="Shape_331" zorder="8">
       <Location x="54.78259" y="51.38459" />
       <Size width="140.6087" height="18.76922" />

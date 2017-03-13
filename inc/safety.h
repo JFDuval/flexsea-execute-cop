@@ -31,7 +31,8 @@ void init_safety(void);
 uint8_t safety_temp(uint8 temp);
 uint8_t safety_volt(uint16 last_v, uint16 low, uint16 high);
 uint8_t safety_disconnection(uint16 last_v);
-uint8_t safetyWDCLKpwm(uint8_t errWDCLK);
+uint8_t safetyWDCLKpwm(uint8_t *errWDCLK);
+void testSafetyWDCLKpwmBlocking(void);
 
 //****************************************************************************
 // Definition(s):
