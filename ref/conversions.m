@@ -100,3 +100,7 @@ adc = uint16(adc);
 encoded_temp = (adc - 41).*8./21
 encoded_temp = 114
 decoded_temp = (((((21/8)*double(encoded_temp) + 41 )/adc_max)*adc_supply) - T0) / Tc
+
+decoded_temp_int = (1/Tc) * ((5*(((21/8)*encoded_temp + 41 )/adc_max)) - T0)
+decoded_temp_int = (((((1300)*encoded_temp + 20500 )/adc_max)) - 100*T0)
+ 
